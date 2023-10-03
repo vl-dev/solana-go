@@ -32,6 +32,7 @@ func (cl *Client) GetParsedTransaction(
 		}
 	}
 	obj["encoding"] = solana.EncodingJSONParsed
+	obj["maxSupportedTransactionVersion"] = 0
 	params = append(params, obj)
 	err = cl.rpcClient.CallForInto(ctx, &out, "getTransaction", params)
 	if err != nil {
